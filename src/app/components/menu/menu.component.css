@@ -1,0 +1,33 @@
+.menu{
+    align-items: start;
+    background-color: rgb(171, 192, 255);
+    border-radius: 1rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:20px;
+    width: 100%;
+}
+
+.menu-title{
+    text-align: center;
+    width: 100%;
+}
+
+.menu-link{
+    color: rgb(0, 0, 0) ;
+    font-size: large;
+    font-weight: 600;
+
+    text-decoration: none !important;
+}
+
+.menu-link:hover{
+    color: rgb(73, 72, 85) ;
+}
+
+.active-menu-link{
+    color: rgb(68, 72, 77);
+    
+}

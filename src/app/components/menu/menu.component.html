@@ -1,0 +1,9 @@
+
+<div class="menu">
+    <div class="menu-title mb-4">
+        <img src="https://talentacademy.com.br/wp-content/uploads/2023/11/logo-1x.webp" alt="logo">
+    </div>
+    <span *ngFor="let menu of listaMenu">
+        <a routerLink="{{menu.url}}" [ngClass]="{'active-menu-link' : rotaAtiva == menu.url}" class="menu-link">{{menu.label}}</a>
+    </span>
+</div>

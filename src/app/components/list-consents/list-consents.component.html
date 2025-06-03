@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Consent given for</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let element of listaConsentimento[indiceLista]">
+        <td>
+            {{element.nome}}
+        </td>
+        <td>
+            {{element.email}}
+        </td>
+        <td>
+            {{element.valorConsentimento}}
+        </td>
+        </tr>
+    </tbody>
+  </table>
+  <nav>
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="indiceLista === 0"><a class="page-link" (click)="selecionarIndice(indiceLista, 'anterior')" style="cursor: pointer;">Previous</a></li>
+      <li class="page-item" *ngFor="let element of listaConsentimento; index as i"><a class="page-link" (click)="selecionarIndice(i, '')" style="cursor: pointer;">{{i + 1}}</a></li>
+      <li class="page-item" [class.disabled]="indiceLista === listaConsentimento.length -1"><a class="page-link" (click)="selecionarIndice(indiceLista, 'proximo')" style="cursor: pointer;">Next</a></li>
+    </ul>
+  </nav>
