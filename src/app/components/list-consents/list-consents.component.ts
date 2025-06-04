@@ -17,11 +17,11 @@ export class ListConsentsComponent implements OnInit{
   constructor(private consentService: ConsentService){}
 
   ngOnInit(): void {
-    this.getConsent();
+    this.recuperarConsentimento();
   }
 
-  getConsent = () => {
-    this.consentService.getConsent().then((response) => {
+  recuperarConsentimento = () => {
+    this.consentService.recuperarConsentimento().then((response) => {
       this.listaConsentimentoAux = response;
       this.formatarListaConsentimento();
     })

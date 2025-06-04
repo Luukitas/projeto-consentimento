@@ -3,12 +3,12 @@
         <form [formGroup]="form">
             <div class="mb-3">
               <label for="nome" class="form-label">Name:</label>
-              <input type="text" formControlName="nome" class="form-control" id="nome">
+              <input type="text" formControlName="nome" class="form-control" id="nome" required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">E-mail address:</label>
                 <input type="email" formControlName="email" class="form-control" id="email">
-              </div>
+            </div>
             <div class="mb-3 card">
                 <div class="card-body">
                     <h6 class="card-title">I agree to:</h6>
@@ -25,6 +25,12 @@
                         <label class="form-check-label" for="checkBox3">Contribute to anonymous visit statistics</label>
                     </div>
                 </div>
+            </div>
+            <div class="alert alert-danger" *ngIf="mensagemErro !== ''" role="alert">
+                {{mensagemErro}}
+            </div>
+            <div class="alert alert-warning" *ngIf="mensagemAlerta !== ''" role="alert">
+                {{mensagemAlerta}}
             </div>
             <button type="submit" [disabled]="
                 form.controls.nome.value === '' || 

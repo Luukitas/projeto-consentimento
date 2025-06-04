@@ -51,13 +51,22 @@ function formatarResposta(valor:any){
         if (init.method === 'POST') {
           return new Promise((resolve) => {
             const reader = new Response(init.body).json().then(body => {
-                formatarResposta(body)
-              const novo = { ...body };
-              consents.push(novo);
-              resolve(new Response(JSON.stringify(novo), {
-                status: 201,
-                headers: { 'Content-Type': 'application/json' }
-              }));
+                const jaExiste = consents.some(c => c.email === body.email);
+
+                if (jaExiste) {
+                    resolve(new Response(JSON.stringify({ message: 'Consentimento já existe.' }), {
+                        status: 409, 
+                        headers: { 'Content-Type': 'application/json' }
+                    }));
+                } else {
+                    formatarResposta(body)
+                    const novo = { ...body };
+                    consents.push(novo);
+                    resolve(new Response(JSON.stringify(novo), {
+                      status: 201,
+                      headers: { 'Content-Type': 'application/json' }
+                    }));
+                }
             });
           });
         }
